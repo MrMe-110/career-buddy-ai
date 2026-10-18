@@ -1,11 +1,1 @@
-'''streamlit
-langchain
-langchain-core
-langchain-groq
-supabase
-python-dotenv
-python-docx
-extra-streamlit-components
-streamlit-cookies-manager'''
-
 streamlit==1.66.0
