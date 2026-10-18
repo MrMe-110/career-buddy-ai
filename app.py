@@ -21,6 +21,9 @@ st.set_page_config(
     layout="wide",
 )
 
+st.title("Career Buddy AI - Startup Test")
+st.success("The app.py file has started successfully!")
+
 # TEMPORARY STARTUP DIAGNOSTICS
 st.write("DEBUG 1: App started")
 st.write("DEBUG 2: Imports completed")
