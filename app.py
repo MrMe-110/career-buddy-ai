@@ -21,19 +21,11 @@ st.set_page_config(
     layout="wide",
 )
 
-st.title("Career Buddy AI - Startup Test")
-st.success("The app.py file has started successfully!")
 
-# TEMPORARY STARTUP DIAGNOSTICS
-st.write("DEBUG 1: App started")
-st.write("DEBUG 2: Imports completed")
-
-# 1. Authenticate the user
-st.write("DEBUG 3: Starting authentication")
 
 supabase, cookies = handle_authentication()
 
-st.write("DEBUG 4: Authentication function returned")
+
 
 # Check that authentication established a user
 if not hasattr(st.session_state, "user") or st.session_state.user is None:
