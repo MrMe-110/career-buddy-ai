@@ -6,4 +6,4 @@ supabase
 python-dotenv
 python-docx
 extra-streamlit-components
-streamlit-cookies-manager
+streamlit-cookies-manager-v2
