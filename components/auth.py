@@ -189,7 +189,7 @@ def handle_authentication():
                             "email": new_email.strip(),
                             "password": new_password,
                              "options": {
-                                "email_redirect_to": "http://localhost:8501"
+                                "email_redirect_to": "https://career-buddy-ai.streamlit.app"
                             }
                         })
 
