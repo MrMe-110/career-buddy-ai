@@ -1,7 +1,5 @@
 streamlit
-langchain
-langchain-core
-langchain-groq
+groq
 supabase
 python-dotenv
 python-docx

@@ -518,5 +518,5 @@ def render_main_content(supabase, user_id, model, temperature):
 
     st.divider()
     st.caption(
-        "Career Buddy AI | Built with Streamlit, LangChain, Groq, and Supabase"
-    )
+    "Career Buddy AI | Built with Streamlit, Groq API, and Supabase"
+)
