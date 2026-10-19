@@ -25,8 +25,6 @@ st.set_page_config(
 
 supabase, cookies = handle_authentication()
 
-
-
 # Check that authentication established a user
 if not hasattr(st.session_state, "user") or st.session_state.user is None:
     st.warning("Authentication has not completed. Please sign in.")
@@ -34,7 +32,7 @@ if not hasattr(st.session_state, "user") or st.session_state.user is None:
 
 user_id = str(st.session_state.user.id)
 
-st.write("DEBUG 5: User authenticated")
+
 
 # 2. Initialize session variables
 defaults = {
@@ -52,11 +50,10 @@ for key, value in defaults.items():
     if key not in st.session_state:
         st.session_state[key] = value
 
-st.write("DEBUG 6: Session initialized")
 
 # 3. Load recent chat history
 try:
-    st.write("DEBUG 7: Loading recent chat history")
+  
 
     recent_user_messages = load_recent_user_messages(
         client=supabase,
@@ -64,7 +61,7 @@ try:
         limit=500,
     )
 
-    st.write("DEBUG 8: Chat history loaded")
+   
 
 except Exception as error:
     recent_user_messages = []
@@ -79,7 +76,7 @@ if "messages" not in st.session_state:
 
         if session_id:
             try:
-                st.write("DEBUG 9: Restoring conversation")
+              
 
                 st.session_state.messages = load_chat_memory(
                     client=supabase,
@@ -107,19 +104,17 @@ if "messages" not in st.session_state:
             }
         ]
 
-st.write("DEBUG 11: Message state ready")
 
 # 5. Load only this user's saved resumes
 try:
-    st.write("DEBUG 12: Loading saved resumes")
-
+   
     saved_resumes = get_resumes(
         client=supabase,
         user_id=user_id,
         limit=50,
     )
 
-    st.write("DEBUG 13: Saved resumes loaded")
+  
 
 except Exception as error:
     saved_resumes = []
@@ -127,18 +122,12 @@ except Exception as error:
 
 # 6. Check the Groq API configuration
 try:
-    st.write("DEBUG 14: Checking AI configuration")
-
     get_groq_api_key()
-
-    st.write("DEBUG 15: AI configuration checked")
-
 except Exception as error:
     st.error(f"AI configuration error: {error}")
     st.stop()
 
 # 7. Render the sidebar
-st.write("DEBUG 16: Rendering sidebar")
 
 model, temperature = render_sidebar(
     supabase=supabase,
@@ -148,10 +137,9 @@ model, temperature = render_sidebar(
     recent_user_messages=recent_user_messages,
 )
 
-st.write("DEBUG 17: Sidebar rendered")
 
 # 8. Render the main application
-st.write("DEBUG 18: Rendering main content")
+
 
 render_main_content(
     supabase=supabase,
@@ -160,4 +148,3 @@ render_main_content(
     temperature=temperature,
 )
 
-st.write("DEBUG 19: Main content rendered")
